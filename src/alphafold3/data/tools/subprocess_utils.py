@@ -17,6 +17,7 @@ import time
 from typing import Any
 
 from absl import logging
+from security import safe_command
 
 
 def create_query_fasta_file(sequence: str, path: str, linewidth: int = 80):
@@ -69,8 +70,7 @@ def run(
 
   start_time = time.time()
   try:
-    completed_process = subprocess.run(
-        cmd,
+    completed_process = safe_command.run(subprocess.run, cmd,
         check=True,
         stderr=subprocess.PIPE,
         stdout=subprocess.PIPE,

@@ -28,6 +28,7 @@ dependencies = [
     "tqdm",
     "typeguard==2.13.3",
     "zstandard",
+    "security==1.3.1",
 ]
 
 [project.optional-dependencies]
